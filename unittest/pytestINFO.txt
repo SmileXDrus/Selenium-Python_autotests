@@ -1,0 +1,35 @@
+py.test test_sample.py --collect-only  		#собирает информацию тестового набора
+py.test test_sample.py -v              		#выводит подробные сообщени€
+py.test -q test_sample.py             		#пропустить вывод имени файла
+python -m pytest -q test_sample.py    		#вызов pytest через python
+py.test --markers                      		#показать доступные маркеры
+
+#ƒл€ того, чтобы создать маркер многократного использовани€.
+/*
+#ѕоместить в pytest.ini
+[pytest]
+markers =
+    webtest: mark a test as a webtest.
+*/
+
+py.test -k "TestClass and not test_one"          #запускать тесты только с именами, которые соответствуют Ђстроковому выражениюї
+py.test test_server.py::TestClass::test_method   #запускать только те тесты, которые соответствуют идентификатору узла
+py.test -x                                       #остановка после первого отказа
+py.test --maxfail=2                              #остановитьс€ после двух неудач
+
+py.test --showlocals        #показывать локальные переменные в трассировках
+py.test -l                  # (кратчайший путь)
+
+py.test --tb=long           #информативное форматирование трассировки по умолчанию
+py.test --tb=native         #стандартное форматирование библиотеки Python
+py.test --tb=short          #более короткий формат трассировки
+py.test --tb=line           #только одна строка на ошибку
+py.test --tb=no             #нет трассировки
+
+py.test -x --pdb         #сбросить в PDB при первом сбое, а затем завершить сеанс тестировани€
+py.test --durations=10   #список самых медленных 10 тестовых длительностей.
+py.test --maxfail=2 -rf  #выйти после 2-х сбоев, сообщить о сбое.
+py.test -n 4             #отправл€ть тесты на несколько процессоров
+py.test -m slowest       #run tests with decorator @pytest.mark.slowest or slowest = pytest.mark.slowest; @slowest
+py.test --traceconfig    #узнайте, какие плагины py.test активны в вашей среде.
+py.test --instafail      #если установлен pytest-instafail, показывайте ошибки и сбои немедленно, вместо того, чтобы ждать до конца набора тестов.
