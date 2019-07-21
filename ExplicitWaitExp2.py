@@ -15,7 +15,7 @@ dr.get("http://suninjuly.github.io/explicit_wait2.html")
 butt = dr.find_element_by_id("book")
 #Нажатие на кнопку
 text = WebDriverWait(dr, 12).until(
-        ec. text_to_be_present_in_element((By.ID, "price"), "10000")
+        ec.text_to_be_present_in_element((By.ID, "price"), "10000")
     )
 butt.click()  
 
