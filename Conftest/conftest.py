@@ -1,3 +1,4 @@
+#Файл конфига - запускается при каждом запуске тестов в данной директории
 import pytest
 from selenium import webdriver
 
